@@ -1,17 +1,17 @@
-# Focus Timer
+# GitHub Learning Tool
 
-A tiny browser tool for practicing GitHub basics. It combines a Pomodoro-style timer with a simple todo list.
+A tiny browser tool for practicing GitHub basics. It shows how local files, repositories, commits, branches, pull requests, and GitHub Pages fit together.
 
 ## Files
 
 - `index.html` - page structure
 - `styles.css` - visual design
-- `script.js` - timer and todo behavior
+- `script.js` - guide, timer, and todo behavior
 
 ## How to Use
 
-Open `index.html` in a browser, choose a timer length, add a few tasks, and start a focus session.
+Open `index.html` in a browser, read the workflow map, tap each GitHub concept card, then inspect the project files listed on the page.
 
 ## Why This Repo Exists
 
-This repository is a small training project for learning how GitHub stores files, tracks changes, and publishes project history through commits.
+This repository is a small training project for learning how GitHub stores files, tracks changes, and publishes a static site with GitHub Pages.
