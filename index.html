@@ -3,15 +3,83 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Focus Timer</title>
+    <title>GitHub Learning Tool</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app-shell">
+      <section class="hero-panel" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">GitHub training project</p>
+          <h1 id="hero-title">See How GitHub Works</h1>
+          <p class="hero-copy">
+            This tiny site shows the path from files on your computer to a public GitHub Pages website.
+          </p>
+        </div>
+
+        <div class="flow-map" aria-label="GitHub workflow">
+          <div class="flow-step">
+            <span>1</span>
+            <strong>Local files</strong>
+            <p>Your project starts as files on this computer.</p>
+          </div>
+          <div class="flow-step">
+            <span>2</span>
+            <strong>Repository</strong>
+            <p>GitHub stores those files inside a project space called a repo.</p>
+          </div>
+          <div class="flow-step">
+            <span>3</span>
+            <strong>Commit</strong>
+            <p>Each saved change becomes a point in the project history.</p>
+          </div>
+          <div class="flow-step">
+            <span>4</span>
+            <strong>Pages</strong>
+            <p>GitHub publishes the website from the repo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="learning-panel" aria-labelledby="learning-title">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Tap a concept</p>
+            <h2 id="learning-title">GitHub Basics</h2>
+          </div>
+        </div>
+
+        <div class="concept-grid">
+          <button class="concept-card active" data-topic="repo">Repository</button>
+          <button class="concept-card" data-topic="commit">Commit</button>
+          <button class="concept-card" data-topic="branch">Branch</button>
+          <button class="concept-card" data-topic="pullRequest">Pull Request</button>
+          <button class="concept-card" data-topic="pages">GitHub Pages</button>
+          <button class="concept-card" data-topic="local">Local Copy</button>
+        </div>
+
+        <article class="concept-detail" id="conceptDetail" aria-live="polite"></article>
+      </section>
+
+      <section class="file-panel" aria-labelledby="files-title">
+        <div>
+          <p class="eyebrow">This project</p>
+          <h2 id="files-title">Where Things Are</h2>
+        </div>
+
+        <ul class="file-list">
+          <li><strong>README.md</strong><span>Explains the project on the GitHub repo page.</span></li>
+          <li><strong>index.html</strong><span>Holds the visible words, buttons, and sections.</span></li>
+          <li><strong>styles.css</strong><span>Controls layout, colors, spacing, and responsive design.</span></li>
+          <li><strong>script.js</strong><span>Adds the click behavior for this learning guide and timer.</span></li>
+          <li><strong>.github/workflows/pages.yml</strong><span>Tells GitHub how to publish the site with Pages.</span></li>
+        </ul>
+      </section>
+
       <section class="timer-panel" aria-labelledby="timer-title">
         <div>
-          <p class="eyebrow">Tiny focus tool</p>
-          <h1 id="timer-title">Focus Timer</h1>
+          <p class="eyebrow">Practice timer</p>
+          <h2 id="timer-title">Focus Timer</h2>
         </div>
 
         <div class="timer-display" id="timerDisplay" aria-live="polite">25:00</div>
