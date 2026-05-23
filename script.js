@@ -6,6 +6,41 @@ const taskForm = document.querySelector('#taskForm');
 const taskInput = document.querySelector('#taskInput');
 const taskList = document.querySelector('#taskList');
 const taskCount = document.querySelector('#taskCount');
+const conceptButtons = document.querySelectorAll('.concept-card');
+const conceptDetail = document.querySelector('#conceptDetail');
+
+const githubTopics = {
+  repo: {
+    title: 'Repository',
+    body: 'A repository is the project folder on GitHub. It stores your files, history, settings, issues, pull requests, and Pages setup.',
+    example: 'This repo is peter206815/my-training-project.'
+  },
+  commit: {
+    title: 'Commit',
+    body: 'A commit is a saved checkpoint. When a file changes, GitHub records what changed, who changed it, and when it happened.',
+    example: 'Adding this guide created new commits in main.'
+  },
+  branch: {
+    title: 'Branch',
+    body: 'A branch is a separate line of work. You can experiment on a branch without changing the main version right away.',
+    example: 'main is the current public version of this project.'
+  },
+  pullRequest: {
+    title: 'Pull Request',
+    body: 'A pull request is a review page for merging one branch into another. It shows the changed files and lets people discuss before merging.',
+    example: 'Teams usually change code on a branch, then open a PR into main.'
+  },
+  pages: {
+    title: 'GitHub Pages',
+    body: 'GitHub Pages turns files in a repo into a public website. For this project, a workflow publishes the static site from main.',
+    example: 'The live URL is usually peter206815.github.io/my-training-project.'
+  },
+  local: {
+    title: 'Local Copy',
+    body: 'A local copy is the version on your computer. You can open files, edit them, test changes, then send those changes back to GitHub.',
+    example: 'Your local folder is C:/Users/User/Documents/Codex/2026-05-24/github/my-training-project.'
+  }
+};
 
 let selectedMinutes = 25;
 let remainingSeconds = selectedMinutes * 60;
@@ -89,7 +124,7 @@ function renderTasks() {
     const deleteButton = document.createElement('button');
     deleteButton.className = 'delete-button';
     deleteButton.type = 'button';
-    deleteButton.textContent = '×';
+    deleteButton.textContent = 'x';
     deleteButton.setAttribute('aria-label', `Delete ${task.text}`);
     deleteButton.addEventListener('click', () => {
       tasks = tasks.filter((savedTask) => savedTask.id !== task.id);
@@ -103,6 +138,15 @@ function renderTasks() {
   updateTaskCount();
 }
 
+function renderConcept(topicName) {
+  const topic = githubTopics[topicName];
+  conceptDetail.innerHTML = `
+    <h3>${topic.title}</h3>
+    <p>${topic.body}</p>
+    <code>${topic.example}</code>
+  `;
+}
+
 modeButtons.forEach((button) => {
   button.addEventListener('click', () => {
     modeButtons.forEach((modeButton) => modeButton.classList.remove('active'));
@@ -113,6 +157,14 @@ modeButtons.forEach((button) => {
 
 startPauseButton.addEventListener('click', startOrPauseTimer);
 resetButton.addEventListener('click', () => resetTimer());
+
+conceptButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    conceptButtons.forEach((conceptButton) => conceptButton.classList.remove('active'));
+    button.classList.add('active');
+    renderConcept(button.dataset.topic);
+  });
+});
 
 taskForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -128,4 +180,5 @@ taskForm.addEventListener('submit', (event) => {
 });
 
 updateTimerDisplay();
+renderConcept('repo');
 renderTasks();
