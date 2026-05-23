@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Focus Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="timer-panel" aria-labelledby="timer-title">
+        <div>
+          <p class="eyebrow">Tiny focus tool</p>
+          <h1 id="timer-title">Focus Timer</h1>
+        </div>
+
+        <div class="timer-display" id="timerDisplay" aria-live="polite">25:00</div>
+
+        <div class="mode-row" aria-label="Timer length">
+          <button class="mode-button active" data-minutes="25">25 min</button>
+          <button class="mode-button" data-minutes="15">15 min</button>
+          <button class="mode-button" data-minutes="5">5 min</button>
+        </div>
+
+        <div class="control-row">
+          <button id="startPauseButton" class="primary-button">Start</button>
+          <button id="resetButton" class="secondary-button">Reset</button>
+        </div>
+      </section>
+
+      <section class="task-panel" aria-labelledby="tasks-title">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Today's list</p>
+            <h2 id="tasks-title">Tasks</h2>
+          </div>
+          <span id="taskCount" class="task-count">0 left</span>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <input id="taskInput" type="text" placeholder="Add a small task" autocomplete="off" />
+          <button type="submit">Add</button>
+        </form>
+
+        <ul id="taskList" class="task-list" aria-label="Task list"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
